@@ -1,0 +1,164 @@
+/* Palette & type inspired by jasonwei.net:
+   warm off-white background, midnight-blue links, Garamond serif. */
+:root {
+  --bg: #f4f4f2;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --accent: #3f3f6b;
+  --link: #191970;            /* paper / list links */
+  --link-text: #3f3f6d;       /* in-text links */
+  --link-secondary: #3498db;
+  --rule: #dcdcd6;
+  --max: 720px;
+
+  --wrap: 920px;
+  --photo: 190px;
+  --gap: 56px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Header (full width: name far left, nav far right) ---------- */
+.site-header {
+  padding: 40px 58px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+}
+.site-title {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: #000;
+}
+.site-title:hover { text-decoration: none; }
+.site-nav { display: flex; gap: 17px; flex-wrap: wrap; }
+.site-nav a { color: #000; font-size: 19px; }
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+/* ---------- Main ---------- */
+main {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+}
+
+h1, h2 {
+  font-family: "Cormorant Garamond", "EB Garamond", serif;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.2;
+}
+h1 { font-size: 40px; margin: 0 0 24px; }
+h2 { font-size: 30px; margin: 56px 0 16px; }
+
+p { margin: 0 0 18px; }
+
+/* in-text links: underlined, as on jasonwei.net (#3f3f6d, 1px, 0.2em offset) */
+.content p a, .links a {
+  color: var(--link-text);
+  text-decoration: underline;
+  text-decoration-color: var(--link-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+}
+
+.links { margin-top: 8px; }
+.links .sep { color: #000; margin: 0 4px; }
+
+/* ---------- Home: photo left, content right, block centered ---------- */
+main.home {
+  display: grid;
+  grid-template-columns: var(--photo) minmax(0, 1fr);
+  column-gap: var(--gap);
+  align-items: start;
+}
+.portrait {
+  display: block;
+  width: var(--photo);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* ---------- Dated lists ---------- */
+.dated { list-style: none; padding: 0; margin: 0; }
+.dated li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 16px;
+  padding: 6px 0;
+}
+.dated .date {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.dated .meta { color: var(--muted); font-style: italic; }
+
+/* ---------- Entries (papers / experience) ---------- */
+.entry { padding: 18px 0; border-top: 1px solid var(--rule); }
+.entry:first-of-type { border-top: none; }
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.entry-title { font-weight: 600; flex: 1; min-width: 0; }
+.entry-date { color: var(--muted); white-space: nowrap; }
+.entry-sub { color: var(--muted); font-style: italic; margin-bottom: 6px; }
+.entry ul { margin: 6px 0 0; padding-left: 22px; }
+.entry li { margin: 4px 0; }
+.tags { color: var(--muted); font-size: 17px; margin-top: 8px; }
+.tags a { color: var(--link-secondary); }
+.todo { background: #fff3c4; padding: 0 4px; border-radius: 3px; }
+
+/* ---------- Footer ---------- */
+footer {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  color: var(--muted);
+  font-size: 16px;
+}
+footer.home-footer { padding-left: calc(32px + var(--photo) + var(--gap)); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .site-header { padding: 24px 20px 0; flex-direction: column; align-items: flex-start; }
+  main { padding: 32px 20px 72px; }
+  main.home { display: block; max-width: var(--max); }
+  .portrait { width: 160px; margin: 0 0 28px; }
+  footer, footer.home-footer { max-width: var(--max); padding: 0 20px 40px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 18px; }
+  h1 { font-size: 34px; }
+  h2 { font-size: 26px; }
+  .dated li { grid-template-columns: 1fr; gap: 0; padding: 8px 0; }
+  .entry-head { flex-wrap: wrap; }
+}
+
+/* "(pdf)" after a paper title, like "(blog)" on jasonwei.net */
+a.secondary { color: var(--link-secondary); }
+.entry-title a { color: var(--link); }

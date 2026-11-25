@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experience · Md. Ahnaf Akib</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">Md. Ahnaf Akib</a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="experience.html" aria-current="page">Experience</a>
+      <a href="assets/Md_Ahnaf_Akib_CV.pdf">CV</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Experience</h1>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">All Generation Tech, Software Engineer II</span>
+        <span class="entry-date">Sep 2024 – Present</span>
+      </div>
+      <div class="entry-sub">Gulshan-1, Dhaka</div>
+
+      <p><strong>Ink'd: AI voice agent for real estate contract intake</strong></p>
+      <ul>
+        <li>Architected and built a production real-time voice AI agent that lets brokers create legally compliant purchase contracts end-to-end by speaking (Python, LangGraph, LiveKit Agents SDK).</li>
+        <li>Designed a 14-node LangGraph state machine with strongly typed conversation state and custom reducers. It covers address capture, property enrichment, contract selection, dynamic Q&amp;A, addenda evaluation, and PDF generation.</li>
+        <li>Built a low-latency voice pipeline with Deepgram STT, Cartesia TTS, and semantic turn detection, streaming graph output through a custom LiveKit LLM adapter.</li>
+        <li>Created a declarative contract engine for Virginia and Maryland residential sales contracts with 30+ required, conditional, and optional addenda.</li>
+        <li>Implemented LLM-based answer extraction with type-aware normalization, validation, and retry handling, so data capture stays reliable.</li>
+        <li>Added LangSmith tracing and OpenTelemetry observability, and containerized the service with Docker.</li>
+      </ul>
+
+      <p style="margin-top:18px"><strong>Annuity new-business platform</strong></p>
+      <ul>
+        <li>Built integrations: DTCC ingestion via Workato, ACORD TX103 XML, document webhooks, carrier lookup APIs, and PandaDoc.</li>
+        <li>Implemented accounting GL and control-file generation for premium and subsequent payments.</li>
+        <li>Added field-level audit logs, RBAC, MSS file parsing, XML-to-webhook pipelines, and PDF generation.</li>
+      </ul>
+      <div class="tags">Python · LangGraph · LiveKit · LangSmith · OpenTelemetry · Docker · AWS S3 · Django REST · Unqork · MongoDB</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Kernel International Ltd, Full-Stack Developer</span>
+        <span class="entry-date">May 2023 – Sep 2023</span>
+      </div>
+      <div class="entry-sub">Gulshan-1, Dhaka</div>
+      <ul>
+        <li><a href="https://horticulturewingbd.com/">Horticulture Wing BD</a>: contributed to center management software for the Ministry of Agriculture, Bangladesh. Redesigned the UI and built a multi-filter plant search and employee records with PDF export.</li>
+        <li><a href="https://www.medibee.com.bd/">MediBee</a>: built a mobile-friendly medical course portal from scratch.</li>
+      </ul>
+      <div class="tags">Next.js · Tailwind CSS · Node.js · Express · EJS · MySQL</div>
+    </div>
+
+    <h2>Projects</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title"><a href="https://github.com/acesuu/Omniscient">Omniscient</a></span>
+      </div>
+      <p>An intelligent research assistant that retrieves, summarizes, and analyzes academic content. It uses reasoning graphs for multi-step question answering.</p>
+      <div class="tags">LangChain · LangGraph · Hugging Face · FastAPI</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title"><a href="https://github.com/acesuu/EchoMind">EchoMind</a></span>
+      </div>
+      <p>A real-time AI meeting companion with live transcription, summarization, and voice feedback. Observability comes from Grafana telemetry and LangSmith.</p>
+      <div class="tags">LiveKit · Cartesia TTS · LangChain · Grafana · LangSmith</div>
+    </div>
+  </main>
+
+  <footer>© 2026 Md. Ahnaf Akib</footer>
+</body>
+</html>
