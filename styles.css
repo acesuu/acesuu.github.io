@@ -162,3 +162,82 @@ footer.home-footer { padding-left: calc(32px + var(--photo) + var(--gap)); }
 /* "(pdf)" after a paper title, like "(blog)" on jasonwei.net */
 a.secondary { color: var(--link-secondary); }
 .entry-title a { color: var(--link); }
+
+/* ---------- Mobile: match jasonwei.net's phone layout ---------- */
+.menu-toggle { display: none; }
+
+@media (max-width: 767px) {
+  body { font-size: 17px; line-height: 1.2; }
+
+  /* header: name left, two-line menu button right */
+  .site-header {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 23px 0;
+  }
+  .site-title { font-size: 27px; position: relative; z-index: 11; }
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+  }
+  .menu-toggle span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: #000;
+    transition: transform .25s ease;
+  }
+  body.menu-open .menu-toggle span:first-child { transform: translateY(5.5px) rotate(45deg); }
+  body.menu-open .menu-toggle span:last-child  { transform: translateY(-5.5px) rotate(-45deg); }
+
+  .site-nav { display: none; }
+  body.menu-open { overflow: hidden; }
+  body.menu-open .site-nav {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+  }
+  body.menu-open .site-nav a { font-size: 30px; }
+
+  /* content */
+  main { padding: 34px 23px 64px; }
+  main.home { display: block; }
+  .portrait { width: 144px; margin: 0 auto 24px; }
+  p { margin: 0 0 14px; }
+  .links { margin-top: 14px; }
+  h1 { font-size: 28px; margin-bottom: 16px; }
+  h2 { font-size: 25.5px; margin: 34px 0 4px; }
+
+  /* dated lists keep the date column, like the original's table */
+  .dated li { grid-template-columns: 66px 1fr; gap: 0; padding: 0; }
+  .dated .date {
+    font-size: .72em;
+    padding: 6px 10px 4px 0;
+    line-height: 20.4px;
+  }
+  .dated li > span:last-child { padding: 6px 0 3px; }
+
+  .entry { padding: 14px 0; }
+  .entry-head { flex-wrap: wrap; gap: 2px 12px; }
+  .tags { font-size: 15px; }
+
+  footer, footer.home-footer { padding: 0 23px 40px; font-size: 14px; }
+}
